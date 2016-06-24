@@ -4,6 +4,7 @@
   "description": "Full-Stack JavaScript with MongoDB, Express, AngularJS, and Node.js",
   "dependencies": {
     "bootstrap": "~3",
+    "materialize": "~0.97.6",
     "angular": "~1.3",
     "angular-resource": "~1.3",
     "angular-animate": "~1.3",
