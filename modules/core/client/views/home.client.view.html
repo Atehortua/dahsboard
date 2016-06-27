@@ -1,12 +1,11 @@
 <div flex layout="row" data-ng-controller="HomeController as ul">
 
     <!-- Container #3 -->
-    <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" class="md-whiteframe-z2">
-        <md-list>
-            <md-item>
-                <md-button>3</md-button>
-            </md-item>
-        </md-list>
+    <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" class="md-whiteframe-z4 sizeSideNav">
+        <md-content layout="column">
+            <md-button flex="100" class="md-primary md-hue-2"><md-icon class="material-icons">face</md-icon> Accion 1</md-button>
+            <md-button flex="100" class="md-primary md-hue-2"><md-icon class="material-icons">extension</md-icon> Accion 2</md-button>
+        </md-content>
     </md-sidenav>
 
     <!-- Container #4 -->
@@ -42,7 +41,7 @@
                         md-direction="left">
             <md-fab-trigger class="align-with-text">
                 <md-button aria-label="menu" class="md-fab md-primary">
-                   M
+                  <md-icon class="material-icons">dashboard</md-icon>
                 </md-button>
             </md-fab-trigger>
             <md-toolbar>
