@@ -46,6 +46,9 @@ a:hover .header-profile-image {
   url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
   url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
 }
+.mainSection{
+  width: 100%;
+}
 
 .material-icons {
   font-family: 'Material Icons';

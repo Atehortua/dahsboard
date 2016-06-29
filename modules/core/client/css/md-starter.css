@@ -1,3 +1,4 @@
+/*
 html, body {
     font-family: 'Roboto', sans-serif;
     font-size:14px;
@@ -6,7 +7,7 @@ html, body {
     padding: 0px;
     }
 
-/* Toolbar area */
+!* Toolbar area *!
 
 .menu {
     background-color: transparent;
@@ -20,7 +21,7 @@ md-toolbar h1 {
     margin: auto;
     }
 
-/* Sidenav area */
+!* Sidenav area *!
 
 md-list .md-button {
     color: inherit;
@@ -37,7 +38,7 @@ md-sidenav  md-list {
     }
 
 
-/* Primary content area */
+!* Primary content area *!
 
 #content {
     overflow: hidden;
@@ -89,13 +90,13 @@ md-button.menuBtn > md-icon {
     max-width: 500px;
     }
 
-/* Utils */
+!* Utils *!
 
 .content-wrapper {
     position: relative;
     }
 
-/* Typography support coming in 0.8.0 */
+!* Typography support coming in 0.8.0 *!
 
 md-toolbar h1 {
     font-size: 1.250em;
@@ -128,3 +129,4 @@ span.name {
     font-size:1.1em;
     padding-left:5px;
     }
+*/

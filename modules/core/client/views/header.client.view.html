@@ -1,9 +1,35 @@
-<div data-ng-controller="HeaderController" flex>
-  <md-toolbar layout="row" data-ng-controller="HomeController as ul">
-    <md-button  hide-gt-sm ng-click="ul.toggleList()">
-      <md-icon class="material-icons">menu</md-icon>
-    </md-button>
-    <h1>logo App</h1>
+<div data-ng-controller="HeaderController">
+  <md-toolbar>
+    <div class="md-toolbar-tools container">
+      <md-button href="/">App</md-button>
+      <span flex></span>
+      <md-menu>
+        <md-button aria-label="open" ng-click="$mdOpenMenu($event)">
+          <img data-ng-src="{{authentication.user.profileImageURL}}" alt="{{authentication.user.displayName}}" data-ng-show="authentication.user" class="header-profile-image" />
+          <span data-ng-bind="authentication.user.displayName"></span>
+        </md-button>
+        <md-menu-content width="4">
+          <md-menu-item>
+            <md-button data-ui-sref="settings.profile">Edit Profile</md-button>
+          </md-menu-item>
+          <md-menu-item>
+            <md-button data-ui-sref="settings.picture">Change Profile Picture</md-button>
+          </md-menu-item>
+          <md-menu-item>
+            <md-button data-ui-sref="settings.password">Change Password</md-button>
+          </md-menu-item>
+          <md-menu-item>
+            <md-button data-ui-sref="settings.accounts">Manage Social Accounts</md-button>
+          </md-menu-item>
+          <md-menu-divider class="md-primary"></md-menu-divider>
+          <md-menu-item>
+            <md-button href="/api/auth/signout" target="_self">Signout</md-button>
+          </md-menu-item>
+        </md-menu-content>
+      </md-menu>
+      <md-button data-ng-hide="authentication.user" class="md-hue-1" data-ui-sref="authentication.signup">Sign Up</md-button>
+      <md-button data-ng-hide="authentication.user" class="md-hue-1" data-ui-sref="authentication.signin">Sign In</md-button>
+    </div>
   </md-toolbar>
 </div>
 

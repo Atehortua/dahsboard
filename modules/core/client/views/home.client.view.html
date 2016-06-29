@@ -1,68 +1,75 @@
-<div flex layout="row" data-ng-controller="HomeController as ul">
+<div data-ng-controller="HomeController as ul">
 
-    <!-- Container #3 -->
+    <!-- sideNav
     <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" class="md-whiteframe-z4 sizeSideNav">
         <md-content layout="column">
             <md-button flex="100" class="md-primary md-hue-2"><md-icon class="material-icons">face</md-icon> Accion 1</md-button>
             <md-button flex="100" class="md-primary md-hue-2"><md-icon class="material-icons">extension</md-icon> Accion 2</md-button>
         </md-content>
-    </md-sidenav>
+    </md-sidenav>-->
 
     <!-- Container #4 -->
-    <md-content flex id="content">
 
-        <md-menu>
-            <md-button class="md-primary md-hue-2 md-raised" aria-label="open" ng-click="$mdOpenMenu($event)">
-                <md-tooltip md-direction="bottom">
-                menu
-            </md-tooltip>
-             hola
-            </md-button>
-            <md-menu-content width="4">
-                <md-menu-item>
-                   <md-button>1adasd</md-button>
-                </md-menu-item>
-                <md-menu-item>
-                    <md-button>2asdasd</md-button>
-                </md-menu-item>
-                <md-menu-divider></md-menu-divider>
-                <md-menu-item>
-                    <md-button>3</md-button>
-                </md-menu-item>
-            </md-menu-content>
-        </md-menu>
-        <md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
-        <md-button class="md-primary md-raised" ng-click="showAlert($event)"   flex="100"  flex-gt-md="auto">alert</md-button>
-        <md-button class="md-primary md-raised" ng-click="showConfirm($event)"  flex="100"  flex-gt-md="auto">
-            Confirm Dialog
-        </md-button>
 
-        <md-fab-toolbar md-open="demo.isOpen" count="demo.count"
-                        md-direction="left">
-            <md-fab-trigger class="align-with-text">
-                <md-button aria-label="menu" class="md-fab md-primary">
-                  <md-icon class="material-icons">dashboard</md-icon>
+        <div class="col-md-12">
+            <md-menu>
+                <md-button class="md-primary md-hue-2 md-raised" aria-label="open" ng-click="$mdOpenMenu($event)">
+                    <md-tooltip md-direction="bottom">
+                        menu
+                    </md-tooltip>
+                    hola
                 </md-button>
-            </md-fab-trigger>
-            <md-toolbar>
-                <md-fab-actions class="md-toolbar-tools">
-                    <md-button aria-label="comment" class="md-icon-button">
-                        1
-                    </md-button>
-                    <md-button aria-label="label" class="md-icon-button">
-                       2
-                    </md-button>
-                    <md-button aria-label="photo" class="md-icon-button">
-                       3
-                    </md-button>
-                </md-fab-actions>
-            </md-toolbar>
-        </md-fab-toolbar>
+                <md-menu-content width="4">
+                    <md-menu-item>
+                        <md-button>1adasd</md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <md-button>2asdasd</md-button>
+                    </md-menu-item>
+                    <md-menu-divider></md-menu-divider>
+                    <md-menu-item>
+                        <md-button>3</md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+            <md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
+            <md-button class="md-primary md-raised" ng-click="showAlert($event)"   flex="100"  flex-gt-md="auto">alert</md-button>
+            <md-button class="md-primary md-raised" ng-click="showConfirm($event)"  flex="100"  flex-gt-md="auto">
+                Confirm Dialog
+            </md-button>
 
-        <md-button class="md-raised" ng-click="showSimpleToast()">Toast</md-button>
+            <md-fab-toolbar md-open="demo.isOpen" count="demo.count"
+                            md-direction="left">
+                <md-fab-trigger class="align-with-text">
+                    <md-button aria-label="menu" class="md-fab md-primary">
+                        <md-icon class="material-icons">dashboard</md-icon>
+                    </md-button>
+                </md-fab-trigger>
+                <md-toolbar>
+                    <md-fab-actions class="md-toolbar-tools">
+                        <md-button aria-label="comment" class="md-icon-button">
+                            1
+                        </md-button>
+                        <md-button aria-label="label" class="md-icon-button">
+                            2
+                        </md-button>
+                        <md-button aria-label="photo" class="md-icon-button">
+                            3
+                        </md-button>
+                    </md-fab-actions>
+                </md-toolbar>
+            </md-fab-toolbar>
 
+            <md-button class="md-raised" ng-click="showSimpleToast()">Toast</md-button>
+        </div>
+
+        <div  class="col-md-12">
+
+        </div>
+
+        <br><br><br><br><br><br><br><br><br><br><br><br>sadada
         <h3>{{status}}</h3>
-    </md-content>
+
 </div>
 
 
