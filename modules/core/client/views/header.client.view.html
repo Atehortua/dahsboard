@@ -3,9 +3,9 @@
     <div class="md-toolbar-tools container">
       <md-button href="/">App</md-button>
       <span flex></span>
-      <md-menu>
+      <md-menu  data-ng-show="authentication.user">
         <md-button aria-label="open" ng-click="$mdOpenMenu($event)">
-          <img data-ng-src="{{authentication.user.profileImageURL}}" alt="{{authentication.user.displayName}}" data-ng-show="authentication.user" class="header-profile-image" />
+          <img data-ng-src="{{authentication.user.profileImageURL}}" alt="{{authentication.user.displayName}}" class="header-profile-image" />
           <span data-ng-bind="authentication.user.displayName"></span>
         </md-button>
         <md-menu-content width="4">
