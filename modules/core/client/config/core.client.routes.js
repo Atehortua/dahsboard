@@ -12,7 +12,15 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
       .state('home', {
         url: '/',
         templateUrl: 'modules/core/views/home.client.view.html'
-      })
+      }) .state('homeK', {
+        url: '/homek',
+        templateUrl: 'modules/core/views/homeK.html',
+        controller: 'HomeK'
+    }) .state('homey', {
+        url: '/homey',
+        templateUrl: 'modules/core/views/homeY.html',
+        controller: 'HomeY'
+    })
       .state('not-found', {
         url: '/not-found',
         templateUrl: 'modules/core/views/404.client.view.html'
