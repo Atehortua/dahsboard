@@ -30,13 +30,14 @@
 
   <!-- Fav Icon -->
   <link href="{{url}}{{favicon}}" rel="shortcut icon" type="image/x-icon">
-
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- Application CSS Files -->
   {% for cssFile in cssFiles %}<link rel="stylesheet" href="{{cssFile}}">{% endfor %}
 </head>
 
 <body class="ng-cloak">
-  <header data-ng-include="'/modules/core/views/header.client.view.html'"></header>
+  <div data-ng-include="'/modules/core/views/header.client.view.html'"></div>
+
   <section class="content">
     <section class="container">
       {% block content %}{% endblock %}
@@ -57,7 +58,7 @@
   <!--Livereload script rendered -->
   <script type="text/javascript" src="{{host}}:35729/livereload.js"></script>
   {% endif %}
-  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 </body>
 
 </html>

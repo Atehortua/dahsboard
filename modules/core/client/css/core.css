@@ -1,11 +1,16 @@
 .content {
-  margin-top: 50px;
+  margin-top: 60px;
 }
-
 
 .undecorated-link:hover {
   text-decoration: none;
 }
+
+body{
+  color: rgba(0,0,0,0.87);
+  background-color: rgb(250,250,250);
+}
+
 [ng\:cloak],
 [ng-cloak],
 [data-ng-cloak],
@@ -36,18 +41,6 @@ a:hover .header-profile-image {
   padding-bottom: 11px !important;
 }
 
-/* Iconos */
-@font-face {
-  font-family: 'Material Icons';
-  font-style: normal;
-  font-weight: 400;
-  src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
-  src: local('Material Icons'),
-  local('MaterialIcons-Regular'),
-  url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
-  url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
-  url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
-}
 .mainSection{
   width: 100%;
 }
@@ -97,9 +90,22 @@ a:hover .header-profile-image {
 .material-icons.md-light { color: rgba(255, 255, 255, 1); }
 .material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
 
+h1{
+  margin: auto;
+  text-align: center;
+}
 
-@media (max-width: 1900px){
-  .sizeSideNav{
-    max-width: 150px ;
-  }
+.width90{
+  width: 90%;
+  margin: auto;
+  display: block;
+}
+
+.fixed{
+  position: fixed;
+}
+
+.menuFab{
+  top: 65px;
+  left: 15px;
 }

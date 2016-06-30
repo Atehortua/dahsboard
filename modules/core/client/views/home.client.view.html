@@ -1,34 +1,65 @@
 <div data-ng-controller="HomeController as ul">
+    <div class="row">
+        <div class="col-md-12">
+            <md-card>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline text-center">Inventario</span>
+                    </md-card-title-text>
+                </md-card-title>
+                <div class="width90">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th>Column heading</th>
+                                <th>Column heading</th>
+                                <th>Column heading</th>
+                                <th>Column heading</th>
+                                <th>Column heading</th>
+                                <th>acciones</th>
+                            </tr>
+                            </thead>
+                            <tbody class="text-center">
+                            <tr>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>5</td>
+                                <td>
+                                    <button class="mdl-button mdl-js-button mdl-button--icon">
+                                        <i class="material-icons">visibility</i>
+                                    </button>
 
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </md-card>
+        </div>
+    </div>
 
-    <div class="table-responsive">
-        <table class="table table-hover">
-            <thead>
-            <tr>
-                <th>Column heading</th>
-                <th>Column heading</th>
-                <th>Column heading</th>
-                <th>Column heading</th>
-                <th>Column heading</th>
-                <th>acciones</th>
-            </tr>
-            </thead>
-            <tbody class="text-center">
-                <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                    <td>5</td>
-                    <td>
-                        <button class="mdl-button mdl-js-button mdl-button--icon">
-                            <i class="material-icons">visibility</i>
-                        </button>
-
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    <!--<div class="fixed menuFab">
+        <md-fab-speed-dial md-open="false" md-direction="right" class="md-scale" ng-click="tooltipOn()">
+            <md-fab-trigger>
+                <md-button aria-label="menu" class="md-fab md-warn">
+                    <md-icon class="material-icons">add</md-icon>
+                </md-button>
+            </md-fab-trigger>
+            <md-fab-actions>
+                <md-button aria-label="Twitter" class="md-fab md-raised md-mini">
+                    <md-tooltip md-direction="bottom" md-visible="tooltipVisible"  md-autohide="false">Agregar Factura</md-tooltip>
+                    <md-icon class="material-icons">description</md-icon>
+                </md-button>
+                <md-button aria-label="Facebook" class="md-fab md-raised md-mini">
+                    <md-tooltip md-direction="bottom" md-visible="tooltipVisible"  md-autohide="false">Agregar Venta</md-tooltip>
+                    <md-icon class="material-icons">shopping_cart</md-icon>
+                </md-button>
+            </md-fab-actions>
+        </md-fab-speed-dial>-->
     </div>
 
 </div>
