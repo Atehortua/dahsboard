@@ -4,10 +4,26 @@
             <md-card>
                 <md-card-title>
                     <md-card-title-text>
-                        <span class="md-headline text-center">Inventario</span>
+                        <span class="md-headline text-center">
+                            Inventario
+                            <md-button  style="display:inline-block;" class="md-fab md-mini md-primary pull-right">
+                                <md-tooltip md-direction="top">Agregar Venta</md-tooltip>
+                                <md-icon class="material-icons">add_shopping_cart</md-icon>
+                            </md-button>
+                            <md-button  style="display:inline-block;" class="md-fab md-mini md-primary pull-right">
+                                <md-tooltip md-direction="bottom">Agregar Factura</md-tooltip>
+                                <md-icon class="material-icons">note_add</md-icon>
+                            </md-button>
+                        </span>
                     </md-card-title-text>
                 </md-card-title>
                 <div class="width90">
+                    <md-input-container class="md-icon-float md-block">
+                        <!-- Use floating label instead of placeholder -->
+                        <md-icon class="material-icons">search</md-icon>
+                        <input placeholder="Filtrar por texto" ng-model="filtroInventario" type="text">
+                        <md-icon ng-show="filtroInventario.length > 0" ng-click="clearFiltro()" class="material-icons" style="display:inline-block;">clear</md-icon>
+                    </md-input-container>
                     <div class="table-responsive">
                         <table class="table table-hover">
                             <thead>
