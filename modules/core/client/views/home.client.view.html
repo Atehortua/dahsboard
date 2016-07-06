@@ -4,19 +4,20 @@
             <md-card>
                 <md-card-title>
                     <md-card-title-text>
-                        <span class="md-headline text-center">
+                        <span class="md-display-1 text-center">
                             Inventario
                             <md-button  style="display:inline-block;" class="md-fab md-mini md-primary pull-right">
                                 <md-tooltip md-direction="top">Agregar Venta</md-tooltip>
                                 <md-icon class="material-icons">add_shopping_cart</md-icon>
                             </md-button>
-                            <md-button  style="display:inline-block;" class="md-fab md-mini md-primary pull-right">
+                            <md-button ng-click="showFormuFactura($event)" style="display:inline-block;" class="md-fab md-mini md-primary pull-right">
                                 <md-tooltip md-direction="bottom">Agregar Factura</md-tooltip>
                                 <md-icon class="material-icons">note_add</md-icon>
                             </md-button>
                         </span>
                     </md-card-title-text>
                 </md-card-title>
+                <hr>
                 <div class="width90">
                     <md-input-container class="md-icon-float md-block">
                         <!-- Use floating label instead of placeholder -->
@@ -58,6 +59,74 @@
         </div>
     </div>
 
+    <!-- formulario de facturas -->
+    <script type="text/ng-template" id="formuFactura.tmpl.html">
+        <md-dialog aria-label="Mango (Fruit)"  ng-cloak>
+            <form>
+                <md-toolbar>
+                    <div class="md-toolbar-tools">
+                        <h2>Agregar una nueva factura</h2>
+                        <span flex></span>
+                        <md-button class="md-icon-button" ng-click="cancel()">
+                            <md-icon class="material-icons" aria-label="Close dialog">clear</md-icon>
+                        </md-button>
+                    </div>
+                </md-toolbar>
+
+                <md-dialog-content>
+                    <div class="md-dialog-content text-center">
+                        <md-input-container class="md-block marginBajo">
+                            <label>Codigo de Factura</label>
+                            <md-icon class="material-icons">dialpad</md-icon>
+                            <input ng-model="factura.codigo" type="text" ng-required="true">
+                        </md-input-container>
+                        <h6 class="marginBajo">Productos</h6>
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                <tr>
+                                    <th>Codigo</th>
+                                    <th>Nombre</th>
+                                    <th>Cantidad</th>
+                                    <th>Precio U</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody class="text-center">
+                                <tr ng-repeat="product in products">
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td><md-icon class="material-icons">clear</md-icon></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <form>
+
+                        </form>
+                        <md-button ng-hide="formuProduct" ng-click="addProduct()" class="md-raised md-primary">
+                            <md-icon class="material-icons" >add</md-icon>
+                        </md-button>
+                        <md-button ng-show="formuProduct"  ng-click="cancelProduct()" class="md-accent md-raised md-hue-1">
+                            <md-icon class="material-icons">clear</md-icon>
+                        </md-button>
+
+                    </div>
+                </md-dialog-content>
+
+                <md-dialog-actions layout="row">
+                    <md-button ng-click="answer('not useful')">
+                        Not Useful
+                    </md-button>
+                    <md-button ng-click="answer('useful')">
+                        Useful
+                    </md-button>
+                </md-dialog-actions>
+            </form>
+        </md-dialog>
+    </script>
     <!--<div class="fixed menuFab">
         <md-fab-speed-dial md-open="false" md-direction="right" class="md-scale" ng-click="tooltipOn()">
             <md-fab-trigger>
