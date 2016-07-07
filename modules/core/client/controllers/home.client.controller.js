@@ -40,38 +40,100 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 ]);
 
 function DialogController($scope, $mdDialog) {
+
+  /**
+   * cerrar el dialogo
+   */
   $scope.hide = function() {
     $mdDialog.hide();
   };
+
+  /**
+   * cerrar el dialogo
+   */
   $scope.cancel = function() {
     $mdDialog.cancel();
   };
+
+  /**
+   * Enviar producto a la vista de home
+   * @param cod codigo de la factura
+   * @param products todos los productos de la factura
+     */
   $scope.answer = function(cod,products) {
-    if(cod && products){
+    if(cod && products.length > 0){
       var factura = {
         codigo:cod,
         products:products
       };
+      $scope.error = "";
       console.log(factura)
       $mdDialog.hide(factura);
+    }else{
+      $scope.error = "LLena todos los campos para poder agregar";
     }
   };
 
   $scope.formuProduct = false;
   $scope.products = [];
   $scope.product = [];
+  $scope.error = "";
 
+  /**
+   * abrir formulario de productos
+   */
   $scope.openFormuPro = function () {
+    $scope.error = "";
     $scope.formuProduct = true;
   };
 
+  /**
+   * añadir producto a la tabla
+   * @param product informacion del producto
+     */
   $scope.addProduct = function (product) {
-    $scope.products.push(product);
-    $scope.product = [];
-    $scope.formuProduct = false;
-  }
+    if($scope.products.length > 0){
+      $scope.statusFormu = true;
+      $scope.products.forEach(function (pr) {
+        if(pr.codigo === product.codigo){
+          $scope.statusFormu = false;
+        }
+      });
+      if($scope.statusFormu){
+        $scope.products.push(product);
+        $scope.product = [];
+        $scope.formuProduct = false;
+        $scope.error = "";
+      }else{
+        $scope.error = "El codigo esta repetido"
+      }
+    }else{
+      $scope.products.push(product);
+      $scope.product = [];
+      $scope.formuProduct = false;
+      $scope.error = "";
+    }
 
+  };
+
+  /**
+   * remover los prodcutos de la tabla
+   * @param codigoProduct codigo del producto que se quiere borrar
+     */
+  $scope.removeProduct = function (codigoProduct) {
+    $scope.error = "";
+    $scope.products.forEach(function (pr,index) {
+      if(pr.codigo === codigoProduct){
+        $scope.products.splice(index,1);
+      }
+    })
+  };
+
+  /**
+   * cancelar formulario
+   */
   $scope.cancelProduct = function () {
+    $scope.error = "";
     $scope.product = [];
     $scope.formuProduct = false;
   };

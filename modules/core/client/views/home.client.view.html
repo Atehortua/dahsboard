@@ -91,17 +91,17 @@
                                             <th>Codigo</th>
                                             <th>Nombre</th>
                                             <th>Cantidad</th>
-                                            <th>PrecioU</th>
+                                            <th>PrecioT</th>
                                             <th></th>
                                         </tr>
                                         </thead>
                                         <tbody class="text-center">
-                                        <tr ng-repeat="pr in products">
+                                        <tr ng-repeat="pr in products track by $index">
                                             <td>{{pr.codigo}}</td>
                                             <td>{{pr.name}}</td>
                                             <td>{{pr.cantidad}}</td>
-                                            <td>{{pr.precioU}}</td>
-                                            <td><md-icon class="material-icons">clear</md-icon></td>
+                                            <td title="Precio Total {{pr.cantidad}} * {{pr.precioU}}">{{pr.cantidad * pr.precioU}}</td>
+                                            <td><a href="#" ng-click="removeProduct(pr.codigo)"><md-icon class="material-icons">delete</md-icon></a></td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -111,7 +111,7 @@
                             <md-divider></md-divider>
                         </div>
                         <div class="width80" ng-show="formuProduct">
-                            <form >
+                            <form>
                                 <a name="formularioProducto"></a>
                                 <h6 class="marginBajo leftText" style="margin-bottom:20px !important;" >Nuevo Producto</h6>
                                 <md-input-container class="md-block marginBajo">
@@ -134,6 +134,7 @@
                                     <md-icon class="material-icons">attach_money</md-icon>
                                     <input ng-model="product.precioU" type="number" ng-required="true">
                                 </md-input-container>
+                                <md-button ng-show="error.length > 0" ng-click="error = ''" class="md_raised md-warn"><md-icon class="material-icons">warning</md-icon> {{error}}</md-button>
                                 <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
                                     <md-button ng-show="formuProduct" type="submit" href="#" ng-click="addProduct(product)" class="md-raised md-primary">
                                         <md-tooltip md-direction="bottom">Guarda Producto</md-tooltip>
@@ -151,6 +152,9 @@
                             <md-icon class="material-icons" >add</md-icon>
                         </md-button>
                     </div>
+                    <section layout="row" layout-align="center end">
+                        <md-button ng-show="error.length > 0" ng-click="error = ''" class="md_raised md-warn"><md-icon class="material-icons">warning</md-icon> {{error}}</md-button>
+                    </section>
                     <br>
                     <md-divider></md-divider>
                     <div layout="row"  layout-align="space-around end">

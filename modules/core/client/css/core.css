@@ -125,6 +125,9 @@ h1{
   background: teal;
   color:white;
 }
+.cardProducts md-icon{
+  color: white !important;
+}
 
 .leftText{
   text-align: left !important;
@@ -134,4 +137,8 @@ h1{
   .sizeDialogo{
     width: 500px
   }
+}
+
+.textRed{
+  color: #ff4144;
 }
