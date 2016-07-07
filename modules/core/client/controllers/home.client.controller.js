@@ -7,7 +7,7 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 
     $scope.status = '  ';
     $scope.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
-
+    $scope.facturas = [];
     $scope.clearFiltro = function () {
       $scope.filtroInventario = "";
       console.log("limpiando Filtro")
@@ -23,8 +23,9 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
         clickOutsideToClose:true,
         fullscreen: useFullScreen
       })
-          .then(function(answer) {
-            $scope.status = 'You said the information was "' + answer + '".';
+          .then(function(factura) {
+            /* aca va la funcion a la base de datos */
+            $scope.facturas.push(factura)
           }, function() {
             $scope.status = 'You cancelled the dialog.';
           });
@@ -45,17 +46,33 @@ function DialogController($scope, $mdDialog) {
   $scope.cancel = function() {
     $mdDialog.cancel();
   };
-  $scope.answer = function(answer) {
-    $mdDialog.hide(answer);
+  $scope.answer = function(cod,products) {
+    if(cod && products){
+      var factura = {
+        codigo:cod,
+        products:products
+      };
+      console.log(factura)
+      $mdDialog.hide(factura);
+    }
   };
 
   $scope.formuProduct = false;
   $scope.products = [];
-  $scope.addProduct = function () {
+  $scope.product = [];
+
+  $scope.openFormuPro = function () {
     $scope.formuProduct = true;
   };
 
+  $scope.addProduct = function (product) {
+    $scope.products.push(product);
+    $scope.product = [];
+    $scope.formuProduct = false;
+  }
+
   $scope.cancelProduct = function () {
+    $scope.product = [];
     $scope.formuProduct = false;
   };
 }

@@ -101,6 +101,12 @@ h1{
   display: block;
 }
 
+.width80{
+  width: 80%;
+  margin: auto;
+  display: block;
+}
+
 .fixed{
   position: fixed;
 }
@@ -112,5 +118,20 @@ h1{
 
 .marginBajo{
   margin-top: 5px !important;
-  margin-bottom: 5px !important;
+  margin-bottom: 8px !important;
+}
+
+.cardProducts{
+  background: teal;
+  color:white;
+}
+
+.leftText{
+  text-align: left !important;
+}
+
+@media(min-width: 600px){
+  .sizeDialogo{
+    width: 500px
+  }
 }

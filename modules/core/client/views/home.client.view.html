@@ -54,6 +54,7 @@
                             </tbody>
                         </table>
                     </div>
+                    {{facturas}}
                 </div>
             </md-card>
         </div>
@@ -61,7 +62,7 @@
 
     <!-- formulario de facturas -->
     <script type="text/ng-template" id="formuFactura.tmpl.html">
-        <md-dialog aria-label="Mango (Fruit)"  ng-cloak>
+        <md-dialog aria-label="Mango (Fruit)"  class="sizeDialogo" ng-cloak>
             <form>
                 <md-toolbar>
                     <div class="md-toolbar-tools">
@@ -78,52 +79,90 @@
                         <md-input-container class="md-block marginBajo">
                             <label>Codigo de Factura</label>
                             <md-icon class="material-icons">dialpad</md-icon>
-                            <input ng-model="factura.codigo" type="text" ng-required="true">
+                            <input ng-model="codigoFactura" type="text" ng-required="true">
                         </md-input-container>
-                        <h6 class="marginBajo">Productos</h6>
-                        <div class="table-responsive">
-                            <table class="table table-hover">
-                                <thead>
-                                <tr>
-                                    <th>Codigo</th>
-                                    <th>Nombre</th>
-                                    <th>Cantidad</th>
-                                    <th>Precio U</th>
-                                    <th></th>
-                                </tr>
-                                </thead>
-                                <tbody class="text-center">
-                                <tr ng-repeat="product in products">
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td>4</td>
-                                    <td><md-icon class="material-icons">clear</md-icon></td>
-                                </tr>
-                                </tbody>
-                            </table>
+                        <div ng-show="products.length > 0">
+                            <md-card class="cardProducts">
+                                <h6 class="marginBajo">Productos</h6>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>Codigo</th>
+                                            <th>Nombre</th>
+                                            <th>Cantidad</th>
+                                            <th>PrecioU</th>
+                                            <th></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody class="text-center">
+                                        <tr ng-repeat="pr in products">
+                                            <td>{{pr.codigo}}</td>
+                                            <td>{{pr.name}}</td>
+                                            <td>{{pr.cantidad}}</td>
+                                            <td>{{pr.precioU}}</td>
+                                            <td><md-icon class="material-icons">clear</md-icon></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </md-card>
+                            <br>
+                            <md-divider></md-divider>
                         </div>
-                        <form>
-
-                        </form>
-                        <md-button ng-hide="formuProduct" ng-click="addProduct()" class="md-raised md-primary">
+                        <div class="width80" ng-show="formuProduct">
+                            <form >
+                                <a name="formularioProducto"></a>
+                                <h6 class="marginBajo leftText" style="margin-bottom:20px !important;" >Nuevo Producto</h6>
+                                <md-input-container class="md-block marginBajo">
+                                    <label>Codigo del Producto</label>
+                                    <md-icon class="material-icons">shopping_basket</md-icon>
+                                    <input ng-model="product.codigo" type="text" ng-required="true">
+                                </md-input-container>
+                                <md-input-container class="md-block marginBajo">
+                                    <label>Nombre del Producto</label>
+                                    <md-icon class="material-icons">format_size</md-icon>
+                                    <input ng-model="product.name" type="text" ng-required="true">
+                                </md-input-container>
+                                <md-input-container class="md-block marginBajo">
+                                    <label>Cantidad</label>
+                                    <md-icon class="material-icons">content_copy</md-icon>
+                                    <input ng-model="product.cantidad" type="number" ng-required="true">
+                                </md-input-container>
+                                <md-input-container class="md-block marginBajo">
+                                    <label>Precio Unitario</label>
+                                    <md-icon class="material-icons">attach_money</md-icon>
+                                    <input ng-model="product.precioU" type="number" ng-required="true">
+                                </md-input-container>
+                                <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+                                    <md-button ng-show="formuProduct" type="submit" href="#" ng-click="addProduct(product)" class="md-raised md-primary">
+                                        <md-tooltip md-direction="bottom">Guarda Producto</md-tooltip>
+                                        <md-icon class="material-icons">done</md-icon>
+                                    </md-button>
+                                    <md-button ng-show="formuProduct" href="#" ng-click="cancelProduct()" class="md-accent md-raised md-hue-1">
+                                        <md-tooltip md-direction="bottom">Cancelar Prodcuto</md-tooltip>
+                                        <md-icon class="material-icons">clear</md-icon>
+                                    </md-button>
+                                </section>
+                            </form>
+                        </div>
+                        <md-button ng-hide="formuProduct" href="#formularioProducto" ng-click="openFormuPro()" class="md-raised md-primary">
+                            <md-tooltip md-direction="bottom">Agregar Producto</md-tooltip>
                             <md-icon class="material-icons" >add</md-icon>
                         </md-button>
-                        <md-button ng-show="formuProduct"  ng-click="cancelProduct()" class="md-accent md-raised md-hue-1">
-                            <md-icon class="material-icons">clear</md-icon>
+                    </div>
+                    <br>
+                    <md-divider></md-divider>
+                    <div layout="row"  layout-align="space-around end">
+                        <md-button class="md_raised md-warn" ng-click="cancel()">
+                            cancelar
                         </md-button>
-
+                        <md-button class="md_raised md-primary" ng-click="answer(codigoFactura,products)">
+                            agregar factura
+                        </md-button>
                     </div>
                 </md-dialog-content>
 
-                <md-dialog-actions layout="row">
-                    <md-button ng-click="answer('not useful')">
-                        Not Useful
-                    </md-button>
-                    <md-button ng-click="answer('useful')">
-                        Useful
-                    </md-button>
-                </md-dialog-actions>
             </form>
         </md-dialog>
     </script>
